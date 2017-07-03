@@ -1,6 +1,6 @@
 //
 //  UIImage+CVPixelBuffer.swift
-//  LowPoly
+//  HED-CoreML
 //
 //  Created by Andrey Volodin on 19.06.17.
 //  Copyright © 2017 s1ddok. All rights reserved.

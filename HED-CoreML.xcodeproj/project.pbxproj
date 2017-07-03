@@ -12,6 +12,9 @@
 		080F46901F09821200588C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F468E1F09821200588C92 /* Main.storyboard */; };
 		080F46921F09821200588C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 080F46911F09821200588C92 /* Assets.xcassets */; };
 		080F46951F09821200588C92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 080F46931F09821200588C92 /* LaunchScreen.storyboard */; };
+		080F46AC1F0A451E00588C92 /* HED_fuse.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */; };
+		080F46AD1F0A451E00588C92 /* HED_so.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */; };
+		080F46AF1F0A45D200588C92 /* HED_so3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		080F46911F09821200588C92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		080F46941F09821200588C92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		080F46961F09821200588C92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_so.mlmodel; sourceTree = "<group>"; };
+		080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_fuse.mlmodel; sourceTree = "<group>"; };
+		080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_so3.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +62,23 @@
 			children = (
 				080F468A1F09821200588C92 /* AppDelegate.swift */,
 				080F468C1F09821200588C92 /* ViewController.swift */,
+				080F469C1F0986BF00588C92 /* models */,
 				080F468E1F09821200588C92 /* Main.storyboard */,
 				080F46911F09821200588C92 /* Assets.xcassets */,
 				080F46931F09821200588C92 /* LaunchScreen.storyboard */,
 				080F46961F09821200588C92 /* Info.plist */,
 			);
 			path = "HED-CoreML";
+			sourceTree = "<group>";
+		};
+		080F469C1F0986BF00588C92 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */,
+				080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */,
+				080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080F46AF1F0A45D200588C92 /* HED_so3.mlmodel in Sources */,
+				080F46AD1F0A451E00588C92 /* HED_so.mlmodel in Sources */,
 				080F468D1F09821200588C92 /* ViewController.swift in Sources */,
+				080F46AC1F0A451E00588C92 /* HED_fuse.mlmodel in Sources */,
 				080F468B1F09821200588C92 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COREML_CODEGEN_LANGUAGE = Swift;
 				DEVELOPMENT_TEAM = PR6HV9J6AD;
 				INFOPLIST_FILE = "HED-CoreML/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -283,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COREML_CODEGEN_LANGUAGE = Swift;
 				DEVELOPMENT_TEAM = PR6HV9J6AD;
 				INFOPLIST_FILE = "HED-CoreML/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -312,6 +334,7 @@
 				080F469B1F09821200588C92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

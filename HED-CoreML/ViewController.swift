@@ -78,7 +78,11 @@ class ViewController: UIViewController {
             return
         }
         
+        // Remember the time when we started
         let startDate = Date()
+        
+        // Convert our image to proper input format
+        // In this case we need to feed pixel buffer which is 500x500 sized.
         let inputW = 500
         let inputH = 500
         guard let inputPixelBuffer = inputImage.resized(width: inputW, height: inputH)
@@ -86,6 +90,7 @@ class ViewController: UIViewController {
             fatalError("Couldn't create pixel buffer.")
         }
         
+        // Use different models based on what output we need
         let featureProvider: MLFeatureProvider
         switch selectedModel {
         case .fuse:
@@ -94,15 +99,22 @@ class ViewController: UIViewController {
             featureProvider = try! hedSO.prediction(data: inputPixelBuffer)
         }
         
+        // Retrieve results
         guard let outputFeatures = featureProvider.featureValue(for: selectedModel.outputLayerName)?.multiArrayValue else {
             fatalError("Couldn't retrieve features")
         }
         
+        // Calculate total buffer size by multiplying shape tensor's dimensions
         let bufferSize = outputFeatures.shape.lazy.map { $0.intValue }.reduce(1, { $0 * $1 })
+        
+        // Get data pointer to the buffer
         let dataPointer = UnsafeMutableBufferPointer(start: outputFeatures.dataPointer.assumingMemoryBound(to: Double.self),
                                                      count: bufferSize)
+        
+        // Prepare buffer for single-channel image result
         var imgData = [UInt8](repeating: 0, count: bufferSize)
         
+        // Normalize result features by applying sigmoid to every pixel and convert to UInt8
         for i in 0..<inputW {
             for j in 0..<inputH {
                 let idx = i * inputW + j
@@ -117,15 +129,21 @@ class ViewController: UIViewController {
             }
         }
         
+        // Create single chanel gray-scale image out of our freshly-created buffer
         let cfbuffer = CFDataCreate(nil, &imgData, bufferSize)!
         let dataProvider = CGDataProvider(data: cfbuffer)!
         let colorSpace = CGColorSpaceCreateDeviceGray()
         let cgImage = CGImage(width: inputW, height: inputH, bitsPerComponent: 8, bitsPerPixel: 8, bytesPerRow: inputW, space: colorSpace, bitmapInfo: [], provider: dataProvider, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
         let resultImage = UIImage(cgImage: cgImage!)
+        
+        // Calculate the time of inference
         let endDate = Date()
         print("Inference is finished in \(endDate.timeIntervalSince(startDate)) for model: \(self.selectedModel.outputLayerName)")
         
+        // Cache results
         self.cachedCalculationResults[self.selectedModel] = resultImage
+        
+        // Enable edge-mode results
         self.resultsSegmentedControl.setEnabled(true, forSegmentAt: 1)
     }
 }

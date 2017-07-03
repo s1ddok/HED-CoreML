@@ -15,6 +15,9 @@
 		080F46AC1F0A451E00588C92 /* HED_fuse.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */; };
 		080F46AD1F0A451E00588C92 /* HED_so.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */; };
 		080F46AF1F0A45D200588C92 /* HED_so3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */; };
+		080F46B21F0A464C00588C92 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F46B11F0A464800588C92 /* UIImage+CVPixelBuffer.swift */; };
+		080F46B41F0A46E800588C92 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080F46B31F0A46E800588C92 /* UIImage+Resize.swift */; };
+		080F46B71F0A4AFA00588C92 /* pic1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 080F46B61F0A4AF400588C92 /* pic1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_so.mlmodel; sourceTree = "<group>"; };
 		080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_fuse.mlmodel; sourceTree = "<group>"; };
 		080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HED_so3.mlmodel; sourceTree = "<group>"; };
+		080F46B11F0A464800588C92 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		080F46B31F0A46E800588C92 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		080F46B61F0A4AF400588C92 /* pic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,9 @@
 			children = (
 				080F468A1F09821200588C92 /* AppDelegate.swift */,
 				080F468C1F09821200588C92 /* ViewController.swift */,
-				080F469C1F0986BF00588C92 /* models */,
+				080F46B51F0A4AF400588C92 /* Images */,
+				080F46B01F0A463E00588C92 /* Utils */,
+				080F469C1F0986BF00588C92 /* Models */,
 				080F468E1F09821200588C92 /* Main.storyboard */,
 				080F46911F09821200588C92 /* Assets.xcassets */,
 				080F46931F09821200588C92 /* LaunchScreen.storyboard */,
@@ -71,14 +79,31 @@
 			path = "HED-CoreML";
 			sourceTree = "<group>";
 		};
-		080F469C1F0986BF00588C92 /* models */ = {
+		080F469C1F0986BF00588C92 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				080F46AB1F0A44EA00588C92 /* HED_fuse.mlmodel */,
 				080F46AA1F0A44EA00588C92 /* HED_so.mlmodel */,
 				080F46AE1F0A45B100588C92 /* HED_so3.mlmodel */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		080F46B01F0A463E00588C92 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				080F46B11F0A464800588C92 /* UIImage+CVPixelBuffer.swift */,
+				080F46B31F0A46E800588C92 /* UIImage+Resize.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		080F46B51F0A4AF400588C92 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				080F46B61F0A4AF400588C92 /* pic1.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080F46B71F0A4AFA00588C92 /* pic1.jpg in Resources */,
 				080F46951F09821200588C92 /* LaunchScreen.storyboard in Resources */,
 				080F46921F09821200588C92 /* Assets.xcassets in Resources */,
 				080F46901F09821200588C92 /* Main.storyboard in Resources */,
@@ -152,7 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080F46B41F0A46E800588C92 /* UIImage+Resize.swift in Sources */,
 				080F46AF1F0A45D200588C92 /* HED_so3.mlmodel in Sources */,
+				080F46B21F0A464C00588C92 /* UIImage+CVPixelBuffer.swift in Sources */,
 				080F46AD1F0A451E00588C92 /* HED_so.mlmodel in Sources */,
 				080F468D1F09821200588C92 /* ViewController.swift in Sources */,
 				080F46AC1F0A451E00588C92 /* HED_fuse.mlmodel in Sources */,

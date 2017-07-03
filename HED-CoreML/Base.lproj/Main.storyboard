@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FiG-iH-PwN">
-                                <rect key="frame" x="12" y="575" width="351" height="29"/>
+                                <rect key="frame" x="12" y="512" width="390" height="29"/>
                                 <segments>
                                     <segment title="fuse"/>
                                     <segment title="dsn5"/>
@@ -32,31 +32,46 @@
                                     <segment title="dsn2"/>
                                     <segment title="dsn1"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectedModelChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="JpT-FN-jMq"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giE-Oq-wAy">
-                                <rect key="frame" x="161" y="542" width="53" height="21"/>
+                                <rect key="frame" x="180.66666666666666" y="479" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zrh-Sg-jHA">
-                                <rect key="frame" x="126" y="482" width="123" height="29"/>
+                                <rect key="frame" x="145.66666666666669" y="431" width="123.00000000000006" height="29"/>
                                 <segments>
                                     <segment title="Original"/>
-                                    <segment title="Edges"/>
+                                    <segment title="Edges" enabled="NO"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectedResultsChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VTr-tA-OC8"/>
+                                </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AND-JM-KfS">
-                                <rect key="frame" x="16" y="36" width="343" height="343"/>
+                                <rect key="frame" x="20" y="36" width="374" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="AND-JM-KfS" secondAttribute="height" multiplier="1:1" id="7bF-nD-4de"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8H-rR-si2">
+                                <rect key="frame" x="141.66666666666669" y="563" width="131.00000000000006" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Do inference"/>
+                                <connections>
+                                    <action selector="doInferencePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6O7-8R-fOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FiG-iH-PwN" secondAttribute="bottom" constant="64" id="I1c-Gi-gKu"/>
-                            <constraint firstItem="giE-Oq-wAy" firstAttribute="top" secondItem="Zrh-Sg-jHA" secondAttribute="bottom" constant="32" id="N2w-gb-U1D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X8H-rR-si2" secondAttribute="bottom" constant="8" id="0yD-RF-OzN"/>
+                            <constraint firstItem="X8H-rR-si2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1bW-iy-Ql5"/>
+                            <constraint firstItem="Zrh-Sg-jHA" firstAttribute="top" secondItem="AND-JM-KfS" secondAttribute="bottom" constant="21" id="J3t-zh-PxU"/>
                             <constraint firstItem="AND-JM-KfS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Oy9-GA-W4j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AND-JM-KfS" secondAttribute="trailing" id="VkA-At-2A1"/>
                             <constraint firstAttribute="trailing" secondItem="FiG-iH-PwN" secondAttribute="trailing" constant="12" id="Z9G-E0-TUQ"/>
@@ -64,11 +79,16 @@
                             <constraint firstItem="FiG-iH-PwN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="bTs-Vn-TtO"/>
                             <constraint firstItem="Zrh-Sg-jHA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fO0-m4-jR0"/>
                             <constraint firstItem="FiG-iH-PwN" firstAttribute="top" secondItem="giE-Oq-wAy" secondAttribute="bottom" constant="12" id="fdN-ye-Ia9"/>
-                            <constraint firstItem="Zrh-Sg-jHA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AND-JM-KfS" secondAttribute="bottom" constant="32" id="qNw-E4-8Oe"/>
                             <constraint firstItem="AND-JM-KfS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qkR-B3-15g"/>
                             <constraint firstItem="AND-JM-KfS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sEZ-9i-Tvh"/>
+                            <constraint firstItem="X8H-rR-si2" firstAttribute="top" secondItem="FiG-iH-PwN" secondAttribute="bottom" constant="23" id="sRz-4e-icN"/>
+                            <constraint firstItem="giE-Oq-wAy" firstAttribute="top" secondItem="Zrh-Sg-jHA" secondAttribute="bottom" constant="20" id="wa8-OP-zM0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="AND-JM-KfS" id="U2L-Wg-SxT"/>
+                        <outlet property="resultsSegmentedControl" destination="Zrh-Sg-jHA" id="JWP-xc-fQ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
